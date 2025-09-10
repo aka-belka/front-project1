@@ -10,6 +10,7 @@
     <meta property="og:title" content="Мой первый сайт"> 
     <meta property="og:description" content="каркас для бущего сайта"> 
     <meta property="og:image" content="assets\baik.jpg">
+    <link rel="stylesheet" href="../static/styles.css">
 </head> 
 <body> 
     <header> 
@@ -31,14 +32,39 @@
         </nav> 
         <h1>Контакты компании</h1> 
         <section> 
-            <h2>Сотрудничество</h2> 
-            <p>Коммерческие предложения</p> 
+            <h2>Наша электронная почта</h2> 
+            <p>serge@gmail.com</p> 
         </section> 
         <section> 
-            <h2>Напишите нам</h2> 
-            <p>ВКонтакте...</p> 
-            <p>Телеграмм...</p>
+            <h2>Наши Соцсети</h2> 
+            <p>Соцсети</p> 
         </section> 
+        <form id ="ContactForm">
+            <label for = "name">Ваше имя:</label>
+            <input type="text" id="name" name="name">
+
+            <label for = "phone">Ваш телефон:</label>
+            <input type="text" id="phone" name="phone" placeholder = "+7-999-999-99-99">
+
+            <label for = "email">Укажите ваш email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="cource">Ваш курс</label>
+            <select id="cource" name="cource" required> 
+                <option value="">--</option> 
+                <option value="1">1 курс</option> 
+                <option value="2">2 курс</option> 
+                <option value="3">3 курс</option> 
+                <option value="4">4 курс</option> 
+                <option value="other">Другой</option> 
+            </select> 
+
+            <label for="message">Сообщение</label> 
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type ="submit" id="submit-btn">Отправить</button>
+            <button type ="reset" id="reset-btn">Отчистить</button>
+        </form>
     </main> 
     <footer> 
         <p>&copy; 2023 Название вашего сайта. Все права защищены.</p> 
