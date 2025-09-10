@@ -57,3 +57,19 @@ button:hover{
     max-width: 250px;
     background-color: whitesmoke;
 }
+
+.error{
+    border: 3px solid red;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: indianred;
+    color: black;
+}
+
+.media{
+    padding: 4px;
+    border: 3px purple solid;
+    background-color: plum;
+    max-width: 735px;
+    max-height: 430px;
+}
