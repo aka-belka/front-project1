@@ -13,23 +13,26 @@
     <link rel="stylesheet" href="../static/styles.css">
 </head> 
 <body> 
-    <header> 
-         <a href="/">Логотип или название сайта</a> 
-        <!-- Главное меню навигации --> 
-        <nav> 
-            <ul> 
-                <li><a href="index.html">Главная</a></li> 
-                <li><a href="about.html">О нас</a></li> 
-                <li><a href="contacts.html">Контакты</a></li> 
+    <header class="site-header"> 
+        <a class="site-header__brand" href="/">Лого</a> 
+        <nav class="site-nav" aria-label="Основная навигация"> 
+            <ul class="site-nav__list"> 
+                <li class="site-nav__item"><a class="site-nav__link" 
+                href="index.html">Главная</a></li> 
+                <li class="site-nav__item"><a class="site-nav__link" 
+                href="about.html">О нас</a></li> 
+                <li class="site-nav__item"><a class="site-nav__link site-nav__link-
+                cta" href="#contacts">Контакты</a></li> 
             </ul> 
         </nav> 
-    </header> 
+    </header>  
     <main>
         <!-- Простые "хлебные крошки" --> 
-        <nav aria-label="Хлебные крошки"> 
-            <a href="index.html">Главная</a> → 
-            <span>Контакты</span> 
-        </nav> 
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html" class="breadcrumbs__link">Главная</a>
+            <span class="breadcrumbs__separator">→</span>
+            <span class="breadcrumbs__current">Контакты</span>
+        </nav>
         <h1>Контакты компании</h1> 
         <section> 
             <h2>Наша электронная почта</h2> 
@@ -40,34 +43,50 @@
             <p>ВКонтакте...</p> 
             <p>Телеграмм...</p>
             <p>Вотсап...</p>  
-        </section> 
-        <h2>Напишите нам</h2>
-        <form id ="ContactForm">
-            <label for = "name">Ваше имя:</label>
-            <input type="text" id="name" name="name">
+        </section>  
 
-            <label for = "phone">Ваш телефон:</label>
-            <input type="text" id="phone" name="phone" placeholder = "+7-999-999-99-99">
+        <!-- Кнопка открытия модалки --> 
+        <button id="openDialog" type="button">Написать нам</button> 
+        <!-- Модалка с формой --> 
+        <dialog id="contactDialog" aria-labelledby="dialogTitle"> 
+            <h2 id="dialogTitle">Обратная связь</h2> 
+            <form id="ContactForm" method="dialog" novalidate> 
+                <label for="name">Имя</label> 
+                <input id="name" name="name" type="text" required minlength="2" autocomplete="given-name"> 
 
-            <label for = "email">Укажите ваш email:</label>
-            <input type="text" id="email" name="email" required>
+                <label for="email">E-mail</label> 
+                <input id="email" name="email" type="email" required autocomplete="email"> 
 
-            <label for="cource">Ваш курс</label>
-            <select id="cource" name="cource" required> 
-                <option value="">--</option> 
-                <option value="1">1 курс</option> 
-                <option value="2">2 курс</option> 
-                <option value="3">3 курс</option> 
-                <option value="4">4 курс</option> 
-                <option value="other">Другой</option> 
-            </select> 
+                <label for="phone">Телефон</label> 
+                <input id="phone" name="phone" type="tel" inputmode="tel" 
+                autocomplete="tel" 
+                aria-describedby="phoneHelp" placeholder="+7 (___) ___-__-__" 
+                required pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"> 
+                <small id="phoneHelp"></small> 
 
-            <label for="message">Сообщение</label> 
-            <textarea id="message" name="message" rows="4" required></textarea>
+                <label for="date">Дата</label> 
+                <input id="date" name="date" type="date" required>
 
-            <button type ="submit" id="submit-btn">Отправить</button>
-            <button type ="reset" id="reset-btn">Отчистить</button>
-        </form>
+                <label for="cource">Ваш курс</label>
+                <select id="cource" name="cource" required> 
+                    <option value="">--</option> 
+                    <option value="1">1 курс</option> 
+                    <option value="2">2 курс</option> 
+                    <option value="3">3 курс</option> 
+                    <option value="4">4 курс</option> 
+                    <option value="other">Другой</option> 
+                </select>
+
+                <label for="message">Сообщение</label> 
+                <textarea id="message" name="message" rows="4" required></textarea> 
+
+                <div class="form-actions"> 
+                <button type="button" id="closeDialog">Закрыть</button> 
+                <button type="submit" id="submit-btn">Отправить</button> 
+                <button type ="reset" id="reset-btn">Отчистить</button>
+                </div> 
+            </form> 
+        </dialog> 
     </main> 
     <footer> 
         <p>&copy; 2023 Название вашего сайта. Все права защищены.</p> 
