@@ -10,26 +10,29 @@
     <meta property="og:title" content="Мой первый сайт"> 
     <meta property="og:description" content="каркас для бущего сайта"> 
     <meta property="og:image" content="assets\baik.jpg">
-        <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
 </head> 
 <body> 
-    <header> 
-         <a href="/">Логотип или название сайта</a> 
-        <!-- Главное меню навигации --> 
-        <nav> 
-            <ul> 
-                <li><a href="index.html">Главная</a></li> 
-                <li><a href="about.html">О нас</a></li> 
-                <li><a href="contacts.html">Контакты</a></li> 
+    <header class="site-header"> 
+        <a class="site-header__brand" href="/">Лого</a> 
+        <nav class="site-nav" aria-label="Основная навигация"> 
+            <ul class="site-nav__list"> 
+                <li class="site-nav__item"><a class="site-nav__link" 
+                href="index.html">Главная</a></li> 
+                <li class="site-nav__item"><a class="site-nav__link" 
+                href="about.html">О нас</a></li> 
+                <li class="site-nav__item"><a class="site-nav__link site-nav__link-
+                cta" href="contacts.html">Контакты</a></li> 
             </ul> 
         </nav> 
     </header> 
     <main>
         <!-- Простые "хлебные крошки" --> 
-        <nav aria-label="Хлебные крошки"> 
-            <a href="index.html">Главная</a> → 
-            <span>О нас</span> 
-        </nav> 
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a href="index.html" class="breadcrumbs__link">Главная</a>
+            <span class="breadcrumbs__separator">→</span>
+            <span class="breadcrumbs__current">О нас</span>
+        </nav>
         <h1>О нашей компании</h1> 
         <section> 
             <h2>Наша история</h2> 
